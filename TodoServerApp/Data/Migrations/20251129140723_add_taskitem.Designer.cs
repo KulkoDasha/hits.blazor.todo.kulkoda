@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TodoServerApp.Data;
 
@@ -11,9 +12,11 @@ using TodoServerApp.Data;
 namespace TodoServerApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251129140723_add_taskitem")]
+    partial class add_taskitem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -232,14 +235,12 @@ namespace TodoServerApp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FinishDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -250,7 +251,7 @@ namespace TodoServerApp.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 11, 30, 12, 47, 5, 380, DateTimeKind.Local).AddTicks(9358),
+                            CreatedDate = new DateTime(2025, 11, 29, 19, 7, 22, 990, DateTimeKind.Local).AddTicks(8365),
                             Description = "Описание задачи 1",
                             FinishDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Задача 1"
@@ -258,7 +259,7 @@ namespace TodoServerApp.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 11, 30, 12, 47, 5, 380, DateTimeKind.Local).AddTicks(9373),
+                            CreatedDate = new DateTime(2025, 11, 29, 19, 7, 22, 990, DateTimeKind.Local).AddTicks(8380),
                             Description = "Описание задачи 2",
                             FinishDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Задача 2"
@@ -266,7 +267,7 @@ namespace TodoServerApp.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 11, 30, 12, 47, 5, 380, DateTimeKind.Local).AddTicks(9374),
+                            CreatedDate = new DateTime(2025, 11, 29, 19, 7, 22, 990, DateTimeKind.Local).AddTicks(8381),
                             Description = "Описание задачи 3",
                             FinishDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Задача 3"
@@ -274,7 +275,7 @@ namespace TodoServerApp.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 11, 30, 12, 47, 5, 380, DateTimeKind.Local).AddTicks(9375),
+                            CreatedDate = new DateTime(2025, 11, 29, 19, 7, 22, 990, DateTimeKind.Local).AddTicks(8382),
                             Description = "Описание задачи 4",
                             FinishDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Задача 4"

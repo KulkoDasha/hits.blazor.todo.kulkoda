@@ -1,0 +1,35 @@
+﻿using TodoServerApp.Data.Interfaces;
+
+namespace TodoServerApp.Data.Services
+{
+    public class MemoryDataService : IDataService
+    {
+        private static IEnumerable<Taskitem> tasks = new List<Taskitem>
+        {
+            new Taskitem {Id = 1, Title = "Задача 1", Description = "Описание задачи 1", CreatedDate = DateTime.Now },
+            new Taskitem {Id = 2, Title = "Задача 2", Description = "Описание задачи 2", CreatedDate = DateTime.Now },
+            new Taskitem {Id = 3, Title = "Задача 3", Description = "Описание задачи 3", CreatedDate = DateTime.Now },
+        };
+
+        public Task DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Taskitem> GetTaskAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Taskitem>> GetTaskItemsAsync()
+        {
+            return Task.FromResult(tasks);
+        }
+
+        public Task SaveAsync(Taskitem item)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+

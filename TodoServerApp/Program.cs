@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using TodoServerApp.Components;
 using TodoServerApp.Components.Account;
 using TodoServerApp.Data;
+using TodoServerApp.Data.Services;
+
 
 namespace TodoServerApp
 {
@@ -34,13 +36,14 @@ namespace TodoServerApp
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddSignInManager()
                 .AddDefaultTokenProviders();
 
             builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
-
+            builder.Services.AddScoped<Data.Interfaces.IDataService, MSSQLDataService>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
